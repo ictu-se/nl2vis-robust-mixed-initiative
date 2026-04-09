@@ -1,0 +1,448 @@
+{
+  "heuristic": {
+    "controllers": {
+      "rank_only": {
+        "intent": 0.10874389702618731,
+        "actions": 0.0,
+        "utility": 0.10874389702618731
+      },
+      "clarify_only": {
+        "intent": 0.5743453173546382,
+        "actions": 1.015756768752774,
+        "utility": 0.49308477585441635
+      },
+      "repair_only": {
+        "intent": 0.6513537505548158,
+        "actions": 1.4946737683089215,
+        "utility": 0.531779849090102
+      },
+      "memory_clarify": {
+        "intent": 0.5818908122503329,
+        "actions": 1.015756768752774,
+        "utility": 0.500630270750111
+      },
+      "full_controller": {
+        "intent": 0.8903683976919663,
+        "actions": 1.4944518419884598,
+        "utility": 0.7708122503328895
+      }
+    }
+  },
+  "reranked": {
+    "controllers": {
+      "rank_only": {
+        "intent": 0.2310252996005326,
+        "actions": 0.0,
+        "utility": 0.2310252996005326
+      },
+      "clarify_only": {
+        "intent": 0.848202396804261,
+        "actions": 1.2514425210830005,
+        "utility": 0.748086995117621
+      },
+      "repair_only": {
+        "intent": 0.9343098091433644,
+        "actions": 1.070572569906791,
+        "utility": 0.8486640035508212
+      },
+      "memory_clarify": {
+        "intent": 0.848202396804261,
+        "actions": 1.2514425210830005,
+        "utility": 0.748086995117621
+      },
+      "full_controller": {
+        "intent": 0.9822458943630714,
+        "actions": 1.4216600088770528,
+        "utility": 0.8685130936529072
+      }
+    }
+  },
+  "qualitative": [
+    {
+      "query": "Create a box plot for full payment status.",
+      "rank_only": {
+        "encoding": {
+          "x": {
+            "field": "booking_id"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "target": {
+        "encoding": {
+          "x": {
+            "field": "payment_type_code"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "clarify_budget": 2,
+      "after_clarify": {
+        "encoding": {
+          "x": {
+            "field": "payment_type_code"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "after_full": {
+        "encoding": {
+          "x": {
+            "field": "payment_type_code"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      }
+    },
+    {
+      "query": "Plot the number of payments on a scatter plot with total amount due and full payment status, showing only those not fully paid and where due amount is at least $482.26.",
+      "rank_only": {
+        "encoding": {
+          "color": {
+            "field": "booking_id"
+          },
+          "size": {
+            "aggregate": "count"
+          },
+          "x": {
+            "field": "amount_paid_in_full_yn"
+          },
+          "y": {
+            "field": "amount_due"
+          }
+        },
+        "mark": "point",
+        "transform": [
+          {
+            "filter": {
+              "field": "amount_due",
+              "gte": 482.26
+            }
+          },
+          {
+            "filter": {
+              "field": "amount_paid_in_full_yn",
+              "lte": 0
+            }
+          }
+        ]
+      },
+      "target": {
+        "encoding": {
+          "size": {
+            "aggregate": "count"
+          },
+          "x": {
+            "field": "amount_paid_in_full_yn"
+          },
+          "y": {
+            "field": "amount_due"
+          }
+        },
+        "mark": "point",
+        "transform": [
+          {
+            "filter": {
+              "field": "amount_due",
+              "gte": 482.26
+            }
+          },
+          {
+            "filter": {
+              "field": "amount_paid_in_full_yn",
+              "lte": 0
+            }
+          }
+        ]
+      },
+      "clarify_budget": 2,
+      "after_clarify": {
+        "encoding": {
+          "color": {
+            "field": "booking_id"
+          },
+          "size": {
+            "aggregate": "count"
+          },
+          "x": {
+            "field": "amount_paid_in_full_yn"
+          },
+          "y": {
+            "field": "amount_due"
+          }
+        },
+        "mark": "point",
+        "transform": [
+          {
+            "filter": {
+              "field": "amount_due",
+              "gte": 482.26
+            }
+          },
+          {
+            "filter": {
+              "field": "amount_paid_in_full_yn",
+              "lte": 0
+            }
+          }
+        ]
+      },
+      "after_full": {
+        "encoding": {
+          "size": {
+            "aggregate": "count"
+          },
+          "x": {
+            "field": "amount_paid_in_full_yn"
+          },
+          "y": {
+            "field": "amount_due"
+          }
+        },
+        "mark": "point",
+        "transform": [
+          {
+            "filter": {
+              "field": "amount_due",
+              "gte": 482.26
+            }
+          },
+          {
+            "filter": {
+              "field": "amount_paid_in_full_yn",
+              "lte": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "query": "The box plot illustrates the distribution for the booking identifier.",
+      "rank_only": {
+        "encoding": {
+          "x": {
+            "field": "booking_id"
+          },
+          "y": {
+            "field": "amount_due"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "target": {
+        "encoding": {
+          "x": {
+            "field": "booking_id"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "clarify_budget": 2,
+      "after_clarify": {
+        "encoding": {
+          "x": {
+            "field": "booking_id"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "after_full": {
+        "encoding": {
+          "x": {
+            "field": "booking_id"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      }
+    },
+    {
+      "query": "The distribution of payment identifiers is shown in a box plot.",
+      "rank_only": {
+        "encoding": {
+          "x": {
+            "field": "payment_id"
+          },
+          "y": {
+            "field": "amount_due"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "target": {
+        "encoding": {
+          "x": {
+            "field": "payment_id"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "clarify_budget": 2,
+      "after_clarify": {
+        "encoding": {
+          "x": {
+            "field": "payment_id"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "after_full": {
+        "encoding": {
+          "x": {
+            "field": "payment_id"
+          },
+          "y": {
+            "field": "amount_paid_in_full_yn"
+          }
+        },
+        "mark": "boxplot"
+      }
+    },
+    {
+      "query": "Create a box plot for the amount of money paid.",
+      "rank_only": {
+        "encoding": {
+          "x": {
+            "field": "booking_id"
+          },
+          "y": {
+            "field": "amount_paid"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "target": {
+        "encoding": {
+          "x": {
+            "field": "payment_type_code"
+          },
+          "y": {
+            "field": "amount_paid"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "clarify_budget": 2,
+      "after_clarify": {
+        "encoding": {
+          "x": {
+            "field": "payment_type_code"
+          },
+          "y": {
+            "field": "amount_paid"
+          }
+        },
+        "mark": "boxplot"
+      },
+      "after_full": {
+        "encoding": {
+          "x": {
+            "field": "payment_type_code"
+          },
+          "y": {
+            "field": "amount_paid"
+          }
+        },
+        "mark": "boxplot"
+      }
+    },
+    {
+      "query": "How many payments were made in total for the paid amount and payment identifier?",
+      "rank_only": {
+        "encoding": {
+          "color": {
+            "field": "payment_id"
+          },
+          "size": {
+            "aggregate": "count"
+          },
+          "x": {
+            "field": "amount_due"
+          },
+          "y": {
+            "field": "amount_paid"
+          }
+        },
+        "mark": "point"
+      },
+      "target": {
+        "encoding": {
+          "color": {
+            "field": "payment_id"
+          },
+          "size": {
+            "aggregate": "count"
+          },
+          "x": {
+            "field": "amount_paid_in_full_yn"
+          },
+          "y": {
+            "field": "amount_paid"
+          }
+        },
+        "mark": "point"
+      },
+      "clarify_budget": 2,
+      "after_clarify": {
+        "encoding": {
+          "color": {
+            "field": "payment_id"
+          },
+          "size": {
+            "aggregate": "count"
+          },
+          "x": {
+            "field": "amount_paid_in_full_yn"
+          },
+          "y": {
+            "field": "amount_paid"
+          }
+        },
+        "mark": "point"
+      },
+      "after_full": {
+        "encoding": {
+          "color": {
+            "field": "payment_id"
+          },
+          "size": {
+            "aggregate": "count"
+          },
+          "x": {
+            "field": "amount_paid_in_full_yn"
+          },
+          "y": {
+            "field": "amount_paid"
+          }
+        },
+        "mark": "point"
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "heuristic": {
+    "results": {
+      "always_clarify": {
+        "intent": 0.6453333333333333,
+        "actions": 2.0,
+        "utility": 0.48533333333333334
+      },
+      "always_repair": {
+        "intent": 0.6568888888888889,
+        "actions": 2.0,
+        "utility": 0.4968888888888889
+      },
+      "oracle": {
+        "intent": 0.7822222222222223,
+        "actions": 2.0,
+        "utility": 0.6222222222222222
+      },
+      "escalate": {
+        "intent": 0.7791111111111111,
+        "actions": 2.0,
+        "utility": 0.6191111111111111
+      }
+    },
+    "weights": {
+      "target_in_pool": -5.971431295977637,
+      "unique_bin": -1.7825959291946283,
+      "start_slot_distance": -1.5078229388728628,
+      "mean_non_null_slots": 0.8093178407468496,
+      "unique_mark": -0.40015849006229254,
+      "unique_aggregate": -0.30714283094172345,
+      "unique_filter": -0.18769251393169387,
+      "candidate_count": 0.12773738031534057,
+      "unique_x": -0.11333466527065456,
+      "unique_y": -0.0744706916893085,
+      "unique_color": -0.07336107248667026,
+      "unique_theta": -0.049660466484333775
+    }
+  },
+  "reranked": {
+    "results": {
+      "always_clarify": {
+        "intent": 0.8977777777777778,
+        "actions": 2.0,
+        "utility": 0.7377777777777778
+      },
+      "always_repair": {
+        "intent": 0.9475555555555556,
+        "actions": 2.0,
+        "utility": 0.7875555555555556
+      },
+      "oracle": {
+        "intent": 0.9848888888888889,
+        "actions": 2.0,
+        "utility": 0.8248888888888889
+      },
+      "escalate": {
+        "intent": 0.9666666666666667,
+        "actions": 2.0,
+        "utility": 0.8066666666666666
+      }
+    },
+    "weights": {
+      "target_in_pool": -3.871403529548715,
+      "unique_mark": -2.78948623403261,
+      "unique_theta": -1.0566725142841937,
+      "unique_bin": -0.9740575946836473,
+      "unique_y": -0.8449569175545842,
+      "unique_color": 0.7725304184994617,
+      "start_slot_distance": 0.7625570599631353,
+      "unique_filter": 0.3800198922234138,
+      "mean_non_null_slots": 0.23461875502736562,
+      "candidate_count": -0.2113858191870057,
+      "unique_aggregate": -0.13191271513865652,
+      "unique_x": 0.07871228589431808
+    }
+  }
+}
