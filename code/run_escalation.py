@@ -14,10 +14,10 @@ from sklearn.linear_model import LogisticRegression
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT / "code"))
 
-from nl2vis_interaction_utils import apply_edit, ask_greedy, filter_candidates, load_ranked_rows, pool_uncertainty_features, slot_differences, slotify, unique_golds
+from interaction_utils import apply_edit, ask_greedy, filter_candidates, load_ranked_rows, pool_uncertainty_features, slot_differences, slotify, unique_golds
 
 
-ARTIFACT_DIR = ROOT / "artifacts_runtime" / "paper12_escalation"
+ARTIFACT_DIR = ROOT / "artifacts_runtime" / "escalation"
 ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -144,11 +144,11 @@ def plot_weights(summary: dict) -> None:
 
 def main() -> None:
     summary = build_summary()
-    (ARTIFACT_DIR / "paper12_escalation_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    (ARTIFACT_DIR / "escalation_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     plot_accuracy(summary)
     plot_utility(summary)
     plot_weights(summary)
-    print("Generated paper12 artifacts in", ARTIFACT_DIR)
+    print("Generated escalation artifacts in", ARTIFACT_DIR)
 
 
 if __name__ == "__main__":

@@ -9,11 +9,11 @@ ROOT = Path(__file__).resolve().parents[1]
 CODE = ROOT / "code"
 
 SCRIPTS = [
-    "run_paper12_escalation.py",
-    "run_paper14_noisy_clarification.py",
-    "run_paper15_noisy_repair.py",
-    "run_paper16_budgeted.py",
-    "run_paper16_q1_extensions.py",
+    "run_escalation.py",
+    "run_clarification_robustness.py",
+    "run_repair_robustness.py",
+    "run_budget_sweep.py",
+    "run_extended_analysis.py",
 ]
 
 

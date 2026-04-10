@@ -4,10 +4,10 @@ This repository includes the minimal ranked-row inputs needed to reproduce the e
 
 Included files:
 
-- `data/paper4_topk/dev_results.json`
-- `data/paper4_topk/dev_reranked_results.json`
-- `data/paper4_topk/test_results.json`
-- `data/paper4_topk/test_reranked_results.json`
+- `data/ranked_pools/dev_results.json`
+- `data/ranked_pools/dev_reranked_results.json`
+- `data/ranked_pools/test_results.json`
+- `data/ranked_pools/test_reranked_results.json`
 
 These files are the ranked candidate pools consumed by the reproduction scripts for:
 
@@ -18,8 +18,8 @@ These files are the ranked candidate pools consumed by the reproduction scripts 
 
 The repository also includes:
 
-- `data/reference_inputs/paper10_controller_summary.json`
+- `data/reference_inputs/controller_summary.json`
 
-This file is a fixed upstream controller summary used by the paper 16 budget-sweep script. It is included so that the cost-sensitivity analysis can be reproduced without requiring users to rerun the full earlier controller stack.
+This file is a fixed controller summary used by the budget-sweep script. It is included so that the cost-sensitivity analysis can be reproduced without requiring users to rerun the full controller stack.
 
 The paper manuscript itself is intentionally not included in this release.

@@ -9,12 +9,12 @@ RUNTIME = ROOT / "artifacts_runtime"
 REFERENCE = ROOT / "reference_results"
 
 CHECKS = {
-    "paper12_escalation/paper12_escalation_summary.json": "paper12_escalation_summary.json",
-    "paper14_noisy_clarify/paper14_noisy_clarify_summary.json": "paper14_noisy_clarify_summary.json",
-    "paper15_noisy_repair/paper15_noisy_repair_summary.json": "paper15_noisy_repair_summary.json",
-    "paper16_budgeted/paper16_budgeted_summary.json": "paper16_budgeted_summary.json",
-    "paper16_q1_extensions/paper16_q1_regime_summary.json": "paper16_q1_regime_summary.json",
-    "paper16_q1_extensions/paper16_q1_significance_summary.json": "paper16_q1_significance_summary.json",
+    "escalation/escalation_summary.json": "escalation_summary.json",
+    "clarification_robustness/clarification_robustness_summary.json": "clarification_robustness_summary.json",
+    "repair_robustness/repair_robustness_summary.json": "repair_robustness_summary.json",
+    "budget_sweep/budget_sweep_summary.json": "budget_sweep_summary.json",
+    "extended_analysis/regime_summary.json": "regime_summary.json",
+    "extended_analysis/significance_summary.json": "significance_summary.json",
 }
 
 

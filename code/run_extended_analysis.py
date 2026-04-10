@@ -16,7 +16,7 @@ from sklearn.linear_model import LogisticRegression
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT / "code"))
 
-from nl2vis_interaction_utils import (
+from interaction_utils import (
     apply_edit,
     ask_greedy,
     filter_candidates,
@@ -29,7 +29,7 @@ from nl2vis_interaction_utils import (
 )
 
 
-ARTIFACT_DIR = ROOT / "artifacts_runtime" / "paper16_q1_extensions"
+ARTIFACT_DIR = ROOT / "artifacts_runtime" / "extended_analysis"
 ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
 ARCHETYPES = {
@@ -226,7 +226,7 @@ def build_significance_summary(controller_logs: dict) -> dict:
         }
 
     # Escalation significance
-    from run_paper12_escalation import build_dataset, fit_policy
+    from run_escalation import build_dataset, fit_policy
 
     for system in ["heuristic", "reranked"]:
         train = build_dataset(load_ranked_rows(system, "dev"))
@@ -249,8 +249,8 @@ def build_significance_summary(controller_logs: dict) -> dict:
         }
 
     # Noise robustness at eta=0.4 as paired gains
-    from run_paper14_noisy_clarification import simulate as clarify_sim
-    from run_paper15_noisy_repair import simulate as repair_sim
+    from run_clarification_robustness import simulate as clarify_sim
+    from run_repair_robustness import simulate as repair_sim
 
     for system in ["heuristic", "reranked"]:
         rows = load_ranked_rows(system, "test")
@@ -283,7 +283,7 @@ def build_significance_summary(controller_logs: dict) -> dict:
 
 
 def build_regime_summary() -> dict:
-    from run_paper12_escalation import clarify_outcome, repair_outcome
+    from run_escalation import clarify_outcome, repair_outcome
 
     summary = {}
     for system in ["heuristic", "reranked"]:
@@ -383,11 +383,11 @@ def main() -> None:
     controller_logs = build_controller_logs()
     significance = build_significance_summary(controller_logs)
     regime = build_regime_summary()
-    (ARTIFACT_DIR / "paper16_q1_significance_summary.json").write_text(json.dumps(significance, indent=2), encoding="utf-8")
-    (ARTIFACT_DIR / "paper16_q1_regime_summary.json").write_text(json.dumps(regime, indent=2), encoding="utf-8")
+    (ARTIFACT_DIR / "significance_summary.json").write_text(json.dumps(significance, indent=2), encoding="utf-8")
+    (ARTIFACT_DIR / "regime_summary.json").write_text(json.dumps(regime, indent=2), encoding="utf-8")
     plot_regime_heatmaps(regime)
     plot_gain_intervals(significance)
-    print("Generated paper16 Q1 extension artifacts in", ARTIFACT_DIR)
+    print("Generated extended-analysis artifacts in", ARTIFACT_DIR)
 
 
 if __name__ == "__main__":

@@ -14,10 +14,10 @@ import seaborn as sns
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT / "code"))
 
-from nl2vis_interaction_utils import ask_greedy, filter_candidates, load_ranked_rows, slotify, unique_golds
+from interaction_utils import ask_greedy, filter_candidates, load_ranked_rows, slotify, unique_golds
 
 
-ARTIFACT_DIR = ROOT / "artifacts_runtime" / "paper14_noisy_clarify"
+ARTIFACT_DIR = ROOT / "artifacts_runtime" / "clarification_robustness"
 ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -91,9 +91,9 @@ def plot(summary: dict) -> None:
 
 def main() -> None:
     summary = build_summary()
-    (ARTIFACT_DIR / "paper14_noisy_clarify_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    (ARTIFACT_DIR / "clarification_robustness_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     plot(summary)
-    print("Generated paper14 artifacts in", ARTIFACT_DIR)
+    print("Generated clarification-robustness artifacts in", ARTIFACT_DIR)
 
 
 if __name__ == "__main__":

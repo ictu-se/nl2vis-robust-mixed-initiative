@@ -8,7 +8,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPER4_ARTIFACTS = ROOT / "data" / "paper4_topk"
+RANKED_POOL_DIR = ROOT / "data" / "ranked_pools"
 
 QUESTION_ORDER = ["filter", "mark", "x", "y", "aggregate", "color", "theta", "size", "sort", "bin"]
 EDIT_ORDER = ["x", "y", "color", "aggregate", "filter", "mark", "theta", "size", "sort", "bin"]
@@ -16,7 +16,7 @@ EDIT_ORDER = ["x", "y", "color", "aggregate", "filter", "mark", "theta", "size",
 
 def load_ranked_rows(system: str, split: str) -> list[dict[str, Any]]:
     suffix = "reranked_results" if system == "reranked" else "results"
-    path = PAPER4_ARTIFACTS / f"{split}_{suffix}.json"
+    path = RANKED_POOL_DIR / f"{split}_{suffix}.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     return data["rows"]
 
