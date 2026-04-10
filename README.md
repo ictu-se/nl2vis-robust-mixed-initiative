@@ -46,13 +46,6 @@ From the repository root:
 python code/run_all.py
 ```
 
-Generated outputs will be written to:
-
-- `artifacts_runtime/paper12_escalation/`
-- `artifacts_runtime/paper14_noisy_clarify/`
-- `artifacts_runtime/paper15_noisy_repair/`
-- `artifacts_runtime/paper16_budgeted/`
-- `artifacts_runtime/paper16_q1_extensions/`
 
 ## Verify Against Reference Outputs
 
